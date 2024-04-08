@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "check:type": "tsc --project tsconfig.json --noEmit",
-    "lint:es": "eslint . --ext ts,tsx,js",
-    "lint:style": "stylelint 'src/**/styled.ts' 'src/**/*.tsx",
-    "lint": "npm lint:es && npm lint:style"
+    "lint": "eslint . --ext ts,tsx,js --fix",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
@@ -25,6 +24,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -49,7 +50,9 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "eslint --cache"
+      "eslint --cache",
+      "npx prettier --write",
+      "npx eslint --fix"
     ],
     "styled.ts": [
       "stylelint --cache"
