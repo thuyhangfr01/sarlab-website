@@ -8,7 +8,10 @@ module.exports = {
   plugins: ['prettier', 'import'],
   ignorePatterns: ['postcss.config.js'],
   rules: {
-    'prettier/prettier': ['error'],
+    'react/function-component-definition': 'off',
+    'import/extensions': 'off',
+    'react/prop-types': 'off',
+    'react/no-array-index-key': 'off',
     'import/no-unresolved': 'error', // turn on errors for missing imports
     'react/jsx-filename-extension': [0, { extensions: ['.tsx'] }],
     'react/react-in-jsx-scope': 'off',
