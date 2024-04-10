@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
+
 import './globals.css';
+import cn from '@/lib/utils';
+import SideNavbar from '@/components/SideNavbar';
 
 const montserrat = Montserrat({ subsets: ['vietnamese'] });
 
@@ -16,7 +19,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body
+        className={cn(
+          montserrat.className,
+          'min-h-screen w-full bg-white text-black  flex',
+        )}
+      >
+        {/* sidebar */}
+        <SideNavbar />
+        {/* main page */}
+        <div className="p-8">{children}</div>
+      </body>
     </html>
   );
 }
